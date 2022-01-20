@@ -1,4 +1,7 @@
 {
+	"name": "marshallu/mu-multisite-setup",
+	"description": "Setup defaults for new sites created on Marshall's website network.",
+	"type": "wordpress-plugin",
     "require-dev": {
 		"paulthewalton/acf-stubs": "^5.8",
         "paulthewalton/acf-pro-stubs": "5.8.9.1",
