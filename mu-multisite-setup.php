@@ -41,10 +41,20 @@ register_activation_hook( __FILE__, 'mu_multisite_setup_deactivate' );
 function mu_multisite_setup_actions( $new_site ) {
 	switch_to_blog( $new_site->blog_id );
 
+	$homepage_post = array(
+		'ID'           => 2,
+		'post_title'   => 'Homepage',
+		'post_content' => 'This is your homepage.',
+	);
+
 	update_option( 'upload_url_path', $new_site->path . 'files', true );
 	$strip_path = str_replace( '/', '', $new_site->path );
 	update_option( 'mucasauth-settings', array( 'allowedADGroups' => array( 'WWW_' . $strip_path ) ), true );
 	activate_plugin( 'classic-editor/classic-editor.php' );
+
+	wp_update_post( $homepage_post );
+	update_option( 'page_on_front', 2 );
+	update_option( 'show_on_front', 'page' );
 
 	restore_current_blog();
 }
