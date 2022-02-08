@@ -56,6 +56,8 @@ function mu_multisite_setup_actions( $new_site ) {
 	update_option( 'page_on_front', 2 );
 	update_option( 'show_on_front', 'page' );
 
+	update_option( 'timezone_string', 'America/Detroit' );
+
 	restore_current_blog();
 }
 add_action( 'wp_initialize_site', 'mu_multisite_setup_actions', 11, 2 );
